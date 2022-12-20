@@ -26,7 +26,7 @@ function mcd {
 
 MODE=vscode
 USER_NAME=xubuntu
-USER_ROOT="/home/${xubuntu}"
+USER_ROOT="/home/${USER_NAME}"
 
 for ARGUMENT in "$@"
 do
@@ -144,13 +144,13 @@ then
     mkdir -p /apps/rust || fail
     if [ "x${USE_CURL}" == "x1" ]
     then
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path || fail
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path || fail        
     else
         wget -O- https://sh.rustup.rs | sh -s -- -y --no-modify-path || fail
     fi
     source ${CARGO_HOME}/env || fail
-    rustup toolchain install 1.60.0 || fail
-    rustup default 1.60.0 || fail
+    rustup toolchain install 1.66.0 || fail
+    rustup default 1.66.0 || fail
     cargo install cargo-c || fail
 fi
 
