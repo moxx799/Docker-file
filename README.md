@@ -70,7 +70,7 @@ docker inspect <your-base-image>:<tag>
 Otherwise, you need to clone the branch firstly:
 
 ```Bash
-git clone --single-branch -b xubuntu https://github.com/cainmagi/Dockerfiles.git xubuntu
+git clone --single-branch -b xubuntu https://github.com/cainmagi/Dockerfiles.git xubuntu #need to be modified
 ```
 
 After that, run such command to build the image:
