@@ -85,11 +85,6 @@ function mv_shortcuts_basic {
             cp -f ${THIS_ROOT}/shortcuts/common/all/gitkraken-url-handler.desktop ${TARGET_MENU}/ || fail
         fi
     fi
-    # With Atom
-    if [[ "${WITH_EXTRA_APPS}" = *"a"* ]]; then
-        cp -f ${THIS_ROOT}/shortcuts/common/all/atom.desktop ${TARGET_USER_MENU}/ || fail
-        cp -f ${THIS_ROOT}/shortcuts/common/all/atom.desktop ${TARGET_DESKTOP}/ || fail
-    fi
     if [ "x${WITH_CHINESE}" = "xtrue" ]
     then
         # With GIMP
