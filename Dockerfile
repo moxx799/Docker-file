@@ -16,6 +16,8 @@ ARG BASE_LAUNCH=/opt/nvidia/nvidia_entrypoint.sh
 # Before: /usr/local/bin/nvidia_entrypoint.sh
 ARG WITH_CHINESE="true"
 ARG WITH_EXTRA_APPS="cgo"
+ARG INIT_UID=1015
+ARG INIT_GID=1016
 ARG ADDR_PROXY=unset
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -23,7 +25,7 @@ ENV USER="root" MKL_CBWR="AUTO" LAUNCH_SCRIPT_ORIGINAL="$BASE_LAUNCH" PATH="${PA
 
 # Move configs.
 COPY configs /root/docker-configs
-RUN chmod +x /root/docker-configs/ --recursive && bash /root/docker-configs/detach MODE=basic
+RUN chmod +x /root/docker-configs/ --recursive && bash /root/docker-configs/detach MODE=basic UID=${INIT_UID} GID=${INIT_GID}
 ENV LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
 
 # Install prepared packages
