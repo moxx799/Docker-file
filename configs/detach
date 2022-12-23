@@ -180,7 +180,7 @@ function mv_panel_20_04 {
     wget -O- https://github.com/moxx799/Docker-file/releases/download/xubuntu-1.8/xconfigs-u20-04.tar.xz | tar xJ -C ${TARGET_CONFIG}/ || fail
     # Config Mousepad
     if [ -f ${TARGET_CONFIG}/Mousepad/mousepadrc ]; then
-        dconf load /org/xfce/mousepad/ < ${TARGET_CONFIG}/Mousepad/mousepadrc || fail
+        dbus-launch dconf load /org/xfce/mousepad/ < ${TARGET_CONFIG}/Mousepad/mousepadrc || fail
     fi
     # Replace google-chrome
     if [ "x${WITH_CHINESE}" = "xtrue" ]
@@ -201,7 +201,7 @@ function mv_panel_18or16_04 {
     wget -O- https://github.com/moxx799/Docker-file/releases/download/xubuntu-1.8/xconfigs-u16-04or18-04.tar.xz | tar xJ -C ${TARGET_CONFIG}/ || fail
     # Config Mousepad
     if [ -f ${TARGET_CONFIG}/Mousepad/mousepadrc ]; then
-        dconf load /org/xfce/mousepad/ < ${TARGET_CONFIG}/Mousepad/mousepadrc || fail
+        dbus-launch dconf load /org/xfce/mousepad/ < ${TARGET_CONFIG}/Mousepad/mousepadrc || fail
     fi
     # Replace chromium
     if [ "x${WITH_CHINESE}" = "xtrue" ]
