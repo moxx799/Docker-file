@@ -30,6 +30,13 @@ function chownplus {
     chmod +rwx "$1" --recursive || fail
 }
 
+function mvetc {
+    if [ -f "/etc/$2" ]; then
+        mv "/etc/$2" "${USER_ROOT}/back/etc-$2.back" || fail
+    fi
+    cp -f ${THIS_ROOT}/$1 /etc/$2 || fail
+}
+
 function rmifex {
     allargs="'$*'"
     msg "rm_if_ex ${allargs}"
@@ -319,9 +326,13 @@ then
         mv /etc/shinit ${USER_ROOT}/back/etc-shinit.back || fail
         cp -f ${THIS_ROOT}/etc-shinit /etc/shinit || fail
     fi
-    cp -f ${THIS_ROOT}/locale.gen /etc || fail
-    cp -f ${THIS_ROOT}/sudoers /etc || fail
-    cp -f ${THIS_ROOT}/etc-profile /etc/profile || fail
+    mvetc "locale.gen" "locale.gen" || fail
+    mvetc "etc-sudoers" "sudoers" || fail
+    mvetc "etc-profile" "profile" || fail
+    if [ -f "${USER_ROOT}/.profile" ]; then
+        mv "${USER_ROOT}/.profile" "${USER_ROOT}/back/.profile.back" || fail
+    fi
+    cp -f ${THIS_ROOT}/.profile ${USER_ROOT}/.profile || fail
     mkdir -p /etc/dpkg/dpkg.cfg.d || fail
     cp -f ${THIS_ROOT}/dpkg-excludes /etc/dpkg/dpkg.cfg.d/excludes || fail
     mkdir -p /etc/ssl || fail
@@ -401,7 +412,9 @@ then
     rm -rf ${THIS_ROOT}/shortcuts || fail
     rm -rf ${THIS_ROOT}/dpkg-excludes || fail
     rm -rf ${THIS_ROOT}/etc-profile || fail
-    rm -rf ${THIS_ROOT}/etc-vncssl.cnf || fail    
+    rm -rf ${THIS_ROOT}/etc-shinit || fail
+    rm -rf ${THIS_ROOT}/etc-vncssl.cnf || fail 
+    rm -rf ${THIS_ROOT}/.profile || fail
     rm -rf ${THIS_ROOT}/.bashrc || fail
     rm -rf ${THIS_ROOT}/locale.gen || fail
     rm -rf ${THIS_ROOT}/sudoers || fail

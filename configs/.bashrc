@@ -126,6 +126,9 @@ if [ -s "/usr/local/bin/oh-my-posh" ]; then
     fi
 fi
 
+mkdir -p ${TMP}/runtime-xubuntu
+XDG_RUNTIME_DIR=${TMP}/runtime-xubuntu
+
 # Export PATH.
 export LD_LIBRARY_PATH
 export LIBRARY_PATH
@@ -134,3 +137,4 @@ export PKG_CONFIG_PATH
 export PKG_CONFIG_LIBDIR
 export MKL_CBWR
 export PATH
+export XDG_RUNTIME_DIR
