@@ -357,6 +357,10 @@ then
     mkdir -p "/root/.config/xfce4" || fail
     cp -f ${THIS_ROOT}/xfce4-xinitrc ${TARGET_XFCE4CONFIG}/xinitrc || fail
     cp -f ${THIS_ROOT}/xfce4-xinitrc /root/.config/xfce4/xinitrc || fail
+
+    msg "Fetch yjin-tool online."
+    wget -O /usr/local/bin/yjin-tool https://gist.githubusercontent.com/cainmagi/0b3159c956422e2f55492ad3bd6b555f/raw/yjin-tool.bash || fail
+    chmod ug+x /usr/local/bin/yjin-tool || fail
 fi
 
 if [ "x${MODE}" = "xshortcuts" ]
