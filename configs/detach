@@ -339,7 +339,7 @@ then
         cp -f ${THIS_ROOT}/etc-shinit /etc/shinit || fail
     fi
     mvetc "locale.gen" "locale.gen" || fail
-    mvetc "etc-sudoers" "sudoers" || fail
+    mvetc "sudoers" "sudoers" || fail
     mvetc "etc-profile" "profile" || fail
     mkdir -p /etc/dpkg/dpkg.cfg.d || fail
     cp -f ${THIS_ROOT}/dpkg-excludes /etc/dpkg/dpkg.cfg.d/excludes || fail
