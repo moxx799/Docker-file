@@ -21,7 +21,7 @@ Here we would show the list of currently built images. Please check each item to
 
 The following images are built based on [xubuntu branch][git-xubuntu].
 
------
+------
 
 #### nvcr.io/uoh053018/xubuntu-tf:1.8-2.10.1
 
