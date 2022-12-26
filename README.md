@@ -7,36 +7,36 @@
 If you do not want to change the contents of the dockerfile, you could use such command to build the image:
 
 ```Bash
-docker build -t xubuntu:1.8 https://github.com/cainmagi/Dockerfiles.git#xubuntu
+docker build -t xubuntu:1.8 https://github.com/moxx799/Docker-file.git
 ```
 
 This image is compatible for Ubuntu 16.04, 18.04 and 20.04. Please check your base image and confirm that the Ubuntu inside the image is compatible with this dockerfile.
 
 We provide 3 examples:
 
-* Start from `pytorch 1.12.0a` image:
+* Start from `pytorch 1.14.0a` image:
 
   ```bash
-  docker build -t xubuntu-tc:1.8 --build-arg BASE_IMAGE=nvcr.io/nvidia/pytorch:22.03-py3 --build-arg BASE_LAUNCH=/opt/nvidia/nvidia_entrypoint.sh https://github.com/cainmagi/Dockerfiles.git#xubuntu
+  docker build -t xubuntu-tc:1.8 --build-arg BASE_IMAGE=nvcr.io/nvidia/pytorch:22.12-py3 --build-arg BASE_LAUNCH=/opt/nvidia/nvidia_entrypoint.sh https://github.com/moxx799/Docker-file.git
   ```
 
-* Start from `cuda 11.6` image:
+* Start from `cuda 11.8` image:
 
   ```bash
-  docker build -t xubuntu-cuda:1.8 --build-arg BASE_IMAGE=nvcr.io/nvidia/cuda:11.6.2-cudnn8-runtime-ubuntu20.04 --build-arg BASE_LAUNCH="" https://github.com/cainmagi/Dockerfiles.git#xubuntu
+  docker build -t xubuntu-cuda:1.8 --build-arg BASE_IMAGE=nvcr.io/nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu20.04 --build-arg BASE_LAUNCH="" https://github.com/moxx799/Docker-file.git
   ```
 
 * Start from `tensorflow 1.13.1` image:
 
   ```bash
-  docker build -t xubuntu-tf:1.8 --build-arg BASE_IMAGE=nvcr.io/nvidia/tensorflow:19.03-py3 --build-arg BASE_LAUNCH=/usr/local/bin/nvidia_entrypoint.sh https://github.com/cainmagi/Dockerfiles.git#xubuntu
+  docker build -t xubuntu-tf:1.8 --build-arg BASE_IMAGE=nvcr.io/nvidia/tensorflow:19.03-py3 --build-arg BASE_LAUNCH=/usr/local/bin/nvidia_entrypoint.sh https://github.com/moxx799/Docker-file.git
   ```
 
 There are 3 available options:
 
 | Option  | Description | Default |
 | :-----: | ----------- | ------- |
-| `BASE_IMAGE` | The base image for building this desktop image. | `nvcr.io/nvidia/pytorch:22.03-py3` |
+| `BASE_IMAGE` | The base image for building this desktop image. | `nvcr.io/nvidia/pytorch:22.12-py3` |
 | `BASE_LAUNCH` | The entrypoint script from the base image. If there is no entry script, please use`""`. | `/opt/nvidia/nvidia_entrypoint.sh` |
 | `WITH_CHINESE` | If set, the image would be built with Chinese support for vscode, sublime and codeblocks. | `true` |
 | `WITH_EXTRA_APPS` | The installed extra applications. Each character represents an app or several apps. For example,`cgo` represents fully installing `Cloudreve`, `GIMP`, `LibreOffice` and `Thunderbird`. More details could be referred in the following table. | `cgo` |
@@ -67,7 +67,7 @@ docker inspect <your-base-image>:<tag>
 Otherwise, you need to clone the branch firstly:
 
 ```Bash
-git clone --single-branch -b xubuntu https://github.com/cainmagi/Dockerfiles.git xubuntu #need to be modified
+git clone --single-branch https://github.com/moxx799/Docker-file.git xubuntu 
 ```
 
 After that, run such command to build the image:
