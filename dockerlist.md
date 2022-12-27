@@ -15,7 +15,7 @@ Here we would show the list of currently built images. Please check each item to
 ### Table of contents
 
 * TOC
-{:toc}
+{:.toc}
 
 ### xUbuntu
 
