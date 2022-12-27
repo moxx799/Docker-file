@@ -9,13 +9,14 @@ To view the detailed graphic guides, click [here](./manual-session).
 To view extra manuals about xUbuntu, click [here](./manual-xubuntu).
 
 ## Docker image info list
+{.:toc}
 
 Here we would show the list of currently built images. Please check each item to find the information of any specific image.
 
 ### Table of contents
 
 * TOC
-{:.toc}
+{:toc}
 
 ### xUbuntu
 
