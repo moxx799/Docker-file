@@ -59,8 +59,7 @@ then
         formulahendry.code-runner
         streetsidesoftware.code-spell-checker
         fortran-lang.linter-gfortran
-        bat67.matlab-extension-pack
-        rebornix.ruby
+        bat67.matlab-extension-pack        
         ikuyadeu.r-pack
         swellaby.rust-pack
         ms-azuretools.vscode-docker
@@ -83,8 +82,7 @@ then
         ms-toolsai.jupyter
         magicstack.magicpython
         mechatroner.rainbow-csv
-        zainchen.json
-        bungcip.better-toml
+        zainchen.json        
         redhat.vscode-yaml
         shakram02.bash-beautify
         ms-vscode.powershell
