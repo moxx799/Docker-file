@@ -104,11 +104,10 @@ then
         apt-get install -y xfce4-battery-plugin xfce4-settings xfce4-clipman-plugin \
             xfce4-cpugraph-plugin xfce4-datetime-plugin xfce4-netload-plugin \
             xfce4-notes-plugin xfce4-places-plugin xfce4-sensors-plugin \
-            xfce4-systemload-plugin xfce4-linelight-plugin xfce4-whiskermenu-plugin \
-            xfce4-indicator-plugin xfce4-mailwatch-plugin xfce4-cpufreq-plugin \
-            xfce4-diskperf-plugin xfce4-fsguard-plugin xfce4-genmon-plugin \
-            xfce4-smartbookmark-plugin xfce4-timer-plugin xfce4-verve-plugin \
-            xfce4-weather-plugin xfce4-appfinder xfce4-dict terminator || fail
+            xfce4-systemload-plugin \
+            xfce4-mailwatch-plugin xfce4-cpufreq-plugin \
+            xfce4-diskperf-plugin xfce4-fsguard-plugin \            
+            xfce4-appfinder xfce4-dict terminator || fail
         # Install screen saver
         apt-get install -y xscreensaver xscreensaver-gl-extra xscreensaver-data-extra \
             xscreensaver-screensaver-bsod || fail
@@ -145,7 +144,7 @@ then
     fi
 
     # Install poular open-sourced apps.
-    apt-get install -y firefox qt5-default qt5-doc-html qt5-image-formats-plugins qt5-style-plugins codeblocks vlc smplayer gedit okular gnome-screenshot pdf2svg || fail
+    apt-get install -y firefox qt5-doc-html qt5-image-formats-plugins qt5-style-plugins codeblocks vlc smplayer gedit okular gnome-screenshot pdf2svg || fail
 
     # Install CodeBlocks Chinese Localization
     if [ "x${WITH_CHINESE}" = "xtrue" ]
@@ -164,7 +163,7 @@ then
         then
             apt-get install -y evince evince-common evince-hwp browser-plugin-evince poppler-data || fail
         else
-            apt-get install -y evince evince-common evince-hwp evince-gtk poppler-data || fail
+            apt-get install -y evince evince-common poppler-data || fail
         fi
     fi
 
