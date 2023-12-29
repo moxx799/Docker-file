@@ -96,7 +96,7 @@ then
         zlib1g-dev openssl libssl-dev \
         libprotobuf-dev \
         protobuf-compiler \
-        python-protobuf \
+        python3-protobuf \
         dconf-cli \
     || fail
 
