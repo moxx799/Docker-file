@@ -73,10 +73,10 @@ then
     fi
 
     # Setting language
-    # apt-get install -y locales || fail
-    # locale-gen en_US.UTF-8 
-    # update-locale --reset LANG=$LANG
-    # dpkg-reconfigure locales
+    apt-get install -y locales || fail
+    locale-gen en_US.UTF-8 
+    update-locale --reset LANG=$LANG
+    dpkg-reconfigure locales
     apt-get install -f -y || fail
     apt-get upgrade -y || fail
     apt-get -y dist-upgrade || fail
