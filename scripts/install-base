@@ -75,7 +75,7 @@ then
     # Setting language
     apt-get install -y locales || fail
     locale-gen en_US.UTF-8
-    sudo dpkg-reconfigure locales
+    dpkg-reconfigure locales
 
     update-locale --reset LANG=$LANG
     apt-get install -f -y || fail
