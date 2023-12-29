@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export LC_ALL=C
 # Make bashline configurations.
 set -e
 RESET='\033[0m'
