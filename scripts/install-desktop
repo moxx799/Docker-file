@@ -176,7 +176,7 @@ then
     else
         #add-apt-repository -y ppa:nomacs/stable || fail
         #add-apt-repository -y ppa:notepadqq-team/notepadqq || fail
-        add-apt-repository -y ppa:oguzhaninan/stacer || fail
+        #add-apt-repository -y ppa:oguzhaninan/stacer || fail
         if [ -d "/var/cache/app-info/xapian/default" ]; then
             chmod -R a+rX,u+w /var/cache/app-info/xapian/default || fail
         fi
