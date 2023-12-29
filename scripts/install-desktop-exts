@@ -163,13 +163,15 @@ fi
 if [ "x${MODE}" = "xscripts" ]
 then
     # Get optional scripts.
-    msg "Put optional scripts in \"${USER_ROOT}\"."
-    wget -O "${USER_ROOT}/install-omp.sh" https://gist.githubusercontent.com/cainmagi/99a8dbfe175fccdc8b3457d14c67e2b8/raw/install-omp.sh || fail
-    wget -O "${USER_ROOT}/install-gcc.sh" https://gist.githubusercontent.com/cainmagi/eaa93dd3c88672cc76e565a2081399d0/raw/install-gcc.sh || fail
+   
     if [ "x${UBUNTU_VER}" != "xjammy" ]; then
+        msg "Put optional scripts in \"${USER_ROOT}\"."
+        wget -O "${USER_ROOT}/install-omp.sh" https://gist.githubusercontent.com/cainmagi/99a8dbfe175fccdc8b3457d14c67e2b8/raw/install-omp.sh || fail
+        wget -O "${USER_ROOT}/install-gcc.sh" https://gist.githubusercontent.com/cainmagi/eaa93dd3c88672cc76e565a2081399d0/raw/install-gcc.sh || fail
         wget -O "${USER_ROOT}/install-ffmpeg-5-0.sh" https://raw.githubusercontent.com/cainmagi/FFmpeg-Encoder-Decoder-for-Python/deps-3.2.0/install-ffmpeg-5_0.sh || fail
     else
+        msg "With new install method with out cainmagi"
         apt-get update -y || fail
-        apt install ffmpeg  || fail
+        apt install gcc omp ffmpeg  || fail
     fi    
 fi
