@@ -232,9 +232,15 @@ then
     fi    
 
     # Install GitFiend 
-    wget -O gitfiend.deb https://github.com/cainmagi/Dockerfiles/releases/download/xubuntu-v1.7-u20.04/GitFiend_0.38.3_amd64.deb || fail
-    apt-get install -y ./gitfiend.deb || fail && rm -f gitfiend.deb || fail
 
+    if [ "x${UBUNTU_VER}" = "xxenial" ]; then
+        wget -O https://gitfiend.com/resources/GitFiend_0.39.4_amd64.deb || fail
+        apt-get -y install ./GitFiend_0.39.4_amd64.deb|| fail && rm -f gitfiend.deb || fail
+    else
+        wget -O gitfiend.deb https://github.com/cainmagi/Dockerfiles/releases/download/xubuntu-v1.7-u20.04/GitFiend_0.38.3_amd64.deb || fail
+        apt-get install -y ./gitfiend.deb || fail && rm -f gitfiend.deb || fail
+    fi    
+    msg "git fiend finished"
     # Install CJK fonts and input methods.
     apt-get install -y fonts-wqy-zenhei || fail
     mkdir -p /usr/share/fonts/opentype || fail
@@ -286,6 +292,7 @@ then
     # Install Python/Pip.
     if [ "x${CUR_PY_VER}" == "xpy37+" ]
     then
+        msg "error check pip version"
         if [ "x${USE_CURL}" == "x1" ]
         then
             curl https://bootstrap.pypa.io/pip/get-pip.py -o /root/scripts/get-pip-3.py || fail
