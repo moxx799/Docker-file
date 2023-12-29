@@ -173,6 +173,8 @@ then
     else
         msg "With new install method with out cainmagi"
         apt-get update -y || fail
+        apt-get -y remove python-pip || fail
+        apt-get -y install python3-pip || fail
         #apt-get install -y omp || fail
         apt install gcc ffmpeg  || fail
     fi    
