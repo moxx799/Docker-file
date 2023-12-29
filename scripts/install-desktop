@@ -104,8 +104,7 @@ then
         apt-get install -y xfce4-battery-plugin xfce4-settings xfce4-clipman-plugin \
             xfce4-cpugraph-plugin xfce4-datetime-plugin xfce4-netload-plugin \
             xfce4-notes-plugin xfce4-places-plugin xfce4-sensors-plugin \
-            xfce4-systemload-plugin \
-            xfce4-mailwatch-plugin xfce4-cpufreq-plugin \
+            xfce4-systemload-plugin xfce4-mailwatch-plugin xfce4-cpufreq-plugin \
             xfce4-diskperf-plugin xfce4-fsguard-plugin \            
             xfce4-appfinder xfce4-dict terminator || fail
         # Install screen saver
