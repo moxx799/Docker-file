@@ -172,10 +172,8 @@ then
         wget -O "${USER_ROOT}/install-ffmpeg-5-0.sh" https://raw.githubusercontent.com/cainmagi/FFmpeg-Encoder-Decoder-for-Python/deps-3.2.0/install-ffmpeg-5_0.sh || fail
     else
         msg "With new install method with out cainmagi"
-        #apt-get update -y || fail
-        #apt-get -y remove python-pip || fail
-        #apt-get -y install python3-pip || fail
-        #apt-get install -y omp || fail
-        #apt install gcc ffmpeg  || fail
+        apt-get update -y || fail
+        apt-get install -y omp || fail
+        apt install gcc ffmpeg  || fail
     fi    
 fi
