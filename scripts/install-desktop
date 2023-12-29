@@ -182,7 +182,7 @@ then
         fi
         apt-get update -y || fail
 
-        apt-get install -y vim-gnome notepadqq nomacs stacer gnome-system-monitor || fail
+        apt-get install -y vim notepadqq nomacs stacer gnome-system-monitor || fail
     fi
 
     if [ "x${UBUNTU_VER}" = "xbionic" ] || [ "x${UBUNTU_VER}" = "xjammy" ]
