@@ -292,12 +292,16 @@ then
     # Install Python/Pip.
     if [ "x${CUR_PY_VER}" == "xpy37+" ]
     then
-        msg "error check pip version"
-        if [ "x${USE_CURL}" == "x1" ]
-        then
-            curl https://bootstrap.pypa.io/pip/get-pip.py -o /root/scripts/get-pip-3.py || fail
+        if dpkg -s python-pip &>/dev/null || dpkg -s python3-pip &>/dev/null; then
+            msg "pip is already installed via the system package manager. Skipping get-pip.py installation."
         else
-            wget -O /root/scripts/get-pip-3.py https://bootstrap.pypa.io/pip/get-pip.py || fail
+            msg "pip is not installed, use get-pip.py to install it"
+            if [ "x${USE_CURL}" == "x1" ]; then
+                curl https://bootstrap.pypa.io/get-pip.py -o /root/scripts/get-pip.py || fail
+            else
+                wget -O /root/scripts/get-pip.py https://bootstrap.pypa.io/get-pip.py || fail
+            fi
+            python3 /root/scripts/get-pip.py || fail
         fi
     fi
     if [ "x${CUR_PY_VER}" == "xpy36" ]
