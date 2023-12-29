@@ -162,6 +162,7 @@ fi
 
 if [ "x${MODE}" = "xscripts" ]
 then
+    UBUNTU_VER=$(lsb_release -cs)
     # Get optional scripts.
    
     if [ "x${UBUNTU_VER}" != "xjammy" ]; then
