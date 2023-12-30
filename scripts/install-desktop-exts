@@ -173,7 +173,7 @@ then
     else
         msg "With new install method with out cainmagi"
         apt-get update -y || fail
-        apt-get install -y omp || fail
+        #apt-get install -y omp || fail
         apt install gcc ffmpeg  || fail
     fi    
 fi
