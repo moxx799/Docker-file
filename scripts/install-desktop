@@ -339,10 +339,12 @@ then
         fi
     fi
     if [ "x${UBUNTU_VER}" = "xjammy" ]; then
+        msg " start pip install base pkgs"
         python3 -m pip install pip --upgrade || fail
         python3 -m pip install --upgrade --force-reinstall blinker || fail
         python3 -m pip install matplotlib plotly kaleido Cython numpy scipy scikit-learn scikit-image ipython h5py leveldb networkx nose pandas python-dateutil protobuf python-gflags pyyaml Pillow six Jinja2 Flask tqdm ${CONDA_OPTIONAL} || fail
     fi
+    msg " start pip install base pkgs"
     if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xbionic" ]  
     then
         apt-get install -y python3-pip || fail
