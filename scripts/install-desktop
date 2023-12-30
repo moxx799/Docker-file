@@ -259,7 +259,7 @@ then
     apt-get install -y at-spi2-core || fail
 
     # Install fcitx5 if in Ubuntu 20.04.
-    if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xjammy" ]; then
+    if [ "x${UBUNTU_VER}" = "xfocal" ] ; then
         add-apt-repository -y ppa:zhsj/fcitx5 || fail
         apt-get update -qq || fail
         apt-get install -y fcitx5 fcitx5-chinese-addons fcitx5-data fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 fcitx5-frontend-qt5 fcitx5-module-cloudpinyin fcitx5-module-fullwidth fcitx5-module-pinyinhelper fcitx5-module-punctuation fcitx5-module-quickphrase fcitx5-module-quickphrase-editor fcitx5-modules fcitx5-pinyin gir1.2-fcitxg-1.0 fcitx5-module-lua fcitx5-material-color fcitx5-rime kde-config-fcitx5 || fail
