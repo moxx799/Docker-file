@@ -104,7 +104,7 @@ fi
 if [[ "${SET_EXTRA_APPS}" = *"g"* ]] && [[ "${REQUIRE_EXTRA_APPS}" = *"g"* ]]; then
     msg "Installation for GIMP."
     # Could be used in 16.04, 18.04 and 20.04.
-    apt-get install -y gimp gimp-cbmplugs gimp-data gimp-data-extras gimp-dcraw gimp-dds gimp-gap gimp-gluas gimp-gmic gimp-gutenprint gimp-help-common gimp-help-en gimp-plugin-registry gimp-texturize gtkam-gimp libgimp2.0-dev gimp-lensfun || fail
+    apt-get install -y gimp gimp-cbmplugs gimp-data gimp-data-extras gimp-dds gimp-gap gimp-gluas gimp-gmic gimp-gutenprint gimp-help-common gimp-help-en gimp-plugin-registry gimp-texturize gtkam-gimp libgimp2.0-dev gimp-lensfun || fail
 fi
 
 
