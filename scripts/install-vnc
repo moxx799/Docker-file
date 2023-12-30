@@ -166,6 +166,8 @@ fi
 if [ "x${MODE}" = "xtheme" ]
 then 
     if [ "x${UBUNTU_VER}" = "xjammy" ]; then
+        apt-get -y install lsb-release lsb-core || fail
+        apt-get -y install humanity-icon-theme hicolor-icon-theme adwaita-icon-theme-full || fail
         msg "without theme"
     else
         # Install xfce4 Desktop
