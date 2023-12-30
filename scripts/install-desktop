@@ -345,6 +345,7 @@ then
         python3 -m pip install --ignore-installed blinker
         python3 -m pip install matplotlib plotly kaleido Cython numpy scipy scikit-learn scikit-image ipython h5py leveldb networkx nose pandas python-dateutil protobuf python-gflags pyyaml Pillow six Jinja2 Flask tqdm ${CONDA_OPTIONAL} || fail
     msg " finish pip install base pkgs"
+    fi
     if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xbionic" ]  
     then
         apt-get install -y python3-pip || fail
@@ -372,6 +373,7 @@ then
             python3 -m pip install pip --upgrade || fail
             python3 -m pip install matplotlib plotly kaleido Cython numpy scipy scikit-learn scikit-image ipython h5py leveldb networkx nose pandas python-dateutil protobuf python-gflags pyyaml Pillow six Jinja2 Flask tqdm ${CONDA_OPTIONAL} || fail
         fi
+    fi
     if [ "x${UBUNTU_VER}" = "xxenial" ]; then
         if [ "x${USE_CURL}" == "x1" ]
         then
