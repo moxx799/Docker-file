@@ -293,7 +293,7 @@ then
     if [ "x${CUR_PY_VER}" == "xpy37+" ]
     then
         if [ "x${UBUNTU_VER}" = "xjammy" ]; then
-            apt install python3-pip || fail
+            apt install -y python3-pip || fail
         else
             msg "pip is not installed, use get-pip.py to install it"
             if [ "x${USE_CURL}" == "x1" ]; then
