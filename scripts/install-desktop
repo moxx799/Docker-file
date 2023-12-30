@@ -211,6 +211,7 @@ then
     then
         apt-get install -y code microsoft-edge-stable || fail
     else
+        apt-get install -y nodejs npm || fail
         apt-get install -y code || fail
     fi
     rm -rf packages.microsoft.gpg || fail
