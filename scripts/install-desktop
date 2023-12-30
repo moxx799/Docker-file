@@ -292,8 +292,8 @@ then
     # Install Python/Pip.
     if [ "x${CUR_PY_VER}" == "xpy37+" ]
     then
-        if dpkg -s python-pip &>/dev/null || dpkg -s python3-pip &>/dev/null; then
-            msg "pip is already installed via the system package manager. Skipping get-pip.py installation."
+        if [ "x${UBUNTU_VER}" = "xjammy" ]; then
+            apt install python3-pip || fail
         else
             msg "pip is not installed, use get-pip.py to install it"
             if [ "x${USE_CURL}" == "x1" ]; then
@@ -338,7 +338,7 @@ then
             fi
         fi
     fi
-    if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xbionic" ]
+    if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xbionic" ]  || [ "x${UBUNTU_VER}" = "xjammy" ]
     then
         apt-get install -y python3-pip || fail
         python3 /root/scripts/get-pip-3.py --force-reinstall || fail
