@@ -207,7 +207,7 @@ then
         chmod -R a+rX,u+w /var/cache/app-info/xapian/default || fail
     fi
     apt-get update -y || fail && apt-get -y dist-upgrade || fail
-    if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xjammy" ]
+    if [ "x${UBUNTU_VER}" = "xfocal" ] 
     then
         apt-get install -y code microsoft-edge-stable || fail
     else
