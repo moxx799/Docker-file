@@ -143,7 +143,15 @@ then
     fi
 
     # Install poular open-sourced apps.
-    apt-get install -y firefox qt5-doc-html qt5-image-formats-plugins qt5-style-plugins codeblocks vlc smplayer gedit okular gnome-screenshot pdf2svg || fail
+    if [ "x${UBUNTU_VER}" = "xjammy" ]; then
+        apt install software-properties-common
+        add-apt-repository ppa:mozillateam/ppa
+        echo 'Package: * Pin: release o=LP-PPA-mozillateam Pin-Priority: 1001' | tee /etc/apt/preferences.d/mozilla-firefox
+        sudo apt install -y firefox
+        apt-get install -y qt5-doc-html qt5-image-formats-plugins qt5-style-plugins codeblocks vlc smplayer gedit okular gnome-screenshot pdf2svg || fail
+    else
+        apt-get install -y firefox qt5-doc-html qt5-image-formats-plugins qt5-style-plugins codeblocks vlc smplayer gedit okular gnome-screenshot pdf2svg || fail
+    fi
 
     # Install CodeBlocks Chinese Localization
     if [ "x${WITH_CHINESE}" = "xtrue" ]
