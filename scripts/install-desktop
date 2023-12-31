@@ -144,15 +144,15 @@ then
 
     # Install poular open-sourced apps.
     if [ "x${UBUNTU_VER}" = "xjammy" ]; then
-        apt install software-properties-common
-        add-apt-repository ppa:mozillateam/ppa
+        apt install -y software-properties-common || fail
+        add-apt-repository -y ppa:mozillateam/ppa || fail
         echo '
         Package: *
         Pin: release o=LP-PPA-mozillateam
         Pin-Priority: 1001
         ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
         echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
-        sudo apt install -y firefox
+        sudo apt install -y firefox || fail
         apt-get install -y qt5-doc-html qt5-image-formats-plugins qt5-style-plugins codeblocks vlc smplayer gedit okular gnome-screenshot pdf2svg || fail
     else
         apt-get install -y firefox qt5-doc-html qt5-image-formats-plugins qt5-style-plugins codeblocks vlc smplayer gedit okular gnome-screenshot pdf2svg || fail
