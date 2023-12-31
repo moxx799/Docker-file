@@ -383,7 +383,7 @@ then
     mv_shortcuts_basic || fail
 
     # Requirement: Ubuntu 20.04
-    if [ "x${UBUNTU_VER}" = "xfocal" ]
+    if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xjammy" ]
     then
         mv_shortcuts_20_04 || fail
     else
@@ -403,7 +403,7 @@ then
     chmod +rw ${TARGET_CONFIG}/fcitx5 --recursive || fail
 
     # Requirement: Ubuntu 20.04
-    if [ "x${UBUNTU_VER}" = "xfocal" ]
+    if [ "x${UBUNTU_VER}" = "xfocal" ] || [ "x${UBUNTU_VER}" = "xjammy" ]
     then
         mv_panel_20_04 || fail
         mv_fcitx5_configs_20_04 || fail
